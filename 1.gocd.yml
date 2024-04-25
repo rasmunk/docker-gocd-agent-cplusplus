@@ -30,7 +30,7 @@ pipelines:
         destination: publish-docker-scripts
     parameters:
       IMAGE: docker-gocd-agent-cplusplus
-      ARGS: ''
+      ARGS: '--no-cache'
       COMMIT_TAG: GO_REVISION_GOCD_AGENT_CPLUSPLUS_GIT
       DEFAULT_TAG: latest
       EXTRA_TAG: v23.4.0
