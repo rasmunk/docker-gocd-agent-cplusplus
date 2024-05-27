@@ -1,5 +1,10 @@
 OWNER=ucphhpc
 IMAGE=gocd-agent-cplusplus
+# Enable that the builder should use buildkit
+# https://docs.docker.com/develop/develop-images/build_enhancements/
+DOCKER_BUILDKIT=1
+# NOTE: dynamic lookup with docker as default and fallback to podman
+DOCKER=$(shell which docker || which podman)
 TAG=edge
 ARGS=
 
@@ -8,10 +13,10 @@ ARGS=
 all: clean build test
 
 build:
-	docker build -t $(OWNER)/$(IMAGE):$(TAG) $(ARGS) .
+	${DOCKER} build -t $(OWNER)/$(IMAGE):$(TAG) $(ARGS) .
 
 clean:
-	docker rmi -f $(OWNER)/$(IMAGE):$(TAG) $(ARGS)
+	${DOCKER} rmi -f $(OWNER)/$(IMAGE):$(TAG) $(ARGS)
 
 push:
-	docker push ${OWNER}/${IMAGE}:${TAG} $(ARGS)
+	${DOCKER} push ${OWNER}/${IMAGE}:${TAG} $(ARGS)
