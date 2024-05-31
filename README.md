@@ -1,2 +1,2 @@
 # docker-gocd-agent-cplusplus
-An GoCD image for building c++ applications in a container
+A simple GoCD image for building c++ applications in a container environment
