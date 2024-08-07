@@ -3,6 +3,8 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    image: ucphhpc/gocd-agent-cplusplus:${BUILD_TAG}
+      args:
+        TAG: ${TAG}
+    image: ucphhpc/gocd-agent-cplusplus:${TAG}
     env_file:
       - .env
