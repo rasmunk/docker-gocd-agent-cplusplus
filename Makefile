@@ -45,3 +45,15 @@ clean: dockerclean
 	rm -fr .env
 	rm -fr .pytest_cache
 	rm -fr tests/__pycache__
+
+.PHONY: uninstallinstall
+uninstalltest:
+### PLACEHOLDER ###
+
+.PHONY: installtest
+installtest:
+### PLACEHOLDER ###
+
+.PHONY: test
+test:
+### PLACEHOLDER ###
